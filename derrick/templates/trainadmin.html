@@ -1,0 +1,119 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Train Admin</title>
+    <link rel="stylesheet" href="{%static '/css/trainadmin.css'%}" />
+  </head>
+  <body>
+    
+
+    <div>
+      <h1>All Bookings</h1>
+      <table class="table">
+        <tr>
+          <th>User</th>
+          <th>Schedule</th>
+          <th>Number Of Seats</th>
+          <th>Total Price</th>
+          <th>Booking Date</th>
+        </tr>
+        {% for x in allbookings %}
+        <tr>
+          <td>{{ x.user }}</td>
+          <td>{{ x.schedule }}</td>
+          <td>{{ x.number_of_seats }}</td>
+          <td>{{ x.total_price }}</td>
+          <td>{{ x.booking_date }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div>
+      <h1>All Schedules</h1>
+      <table>
+        <tr>
+          <th>Train</th>
+          <th>Departure Station</th>
+          <th>Arrival Station</th>
+          <th>Departure Time</th>
+          <th>Arrival Time</th>
+          <th>Price per Seat</th>
+        </tr>
+        {% for y in allschedules %}
+        <tr>
+          <td>{{ y.train }}</td>
+          <td>{{ y.departure_station }}</td>
+          <td>{{ y.arrival_station }}</td>
+          <td>{{ y.departure_time }}</td>
+          <td>{{ y.arrival_time }}</td>
+          <td>{{ y.price_per_seat }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div>
+      <h1>All Destinations</h1>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Description</th>
+        </tr>
+        {% for d in alldestinations %}
+        <tr>
+          <td>{{ d.name }}</td>
+          <td>{{ d.code }}</td>
+          <td>{{ d.description }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div>
+      <h1>All Trains</h1>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Capacity</th>
+          <th>Description</th>
+        </tr>
+        {% for t in alltrains %}
+        <tr>
+          <td>{{ t.name }}</td>
+          <td>{{ t.code }}</td>
+          <td>{{ t.capacity }}</td>
+          <td>{{ t.description }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <!--Messages Div-->
+    <div>
+      <h1>All Messages</h1>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Subject</th>
+          <th>Message</th>
+          <th>Date Sent</th>
+        </tr>
+        {% for m in allmessages %}
+        <tr>
+          <td>{{ m.name }}</td>
+          <td>{{ m.email }}</td>
+          <td>{{ m.subject }}</td>
+          <td>{{ m.message }}</td>
+          <td>{{ m.date_sent }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

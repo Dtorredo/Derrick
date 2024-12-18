@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Train Reservation KE</title>
+    <link rel="stylesheet" href="{% static '/css/YOLO.css' %}" />
+
+    <script
+      src="https://kit.fontawesome.com/d08ab046b6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="header">
+      <div class="container">
+        <!-- SGRAILWAYS header and navbar are in the same container -->
+        <div class="header">
+          <p>Welcome to SGRAILWAYS {{ user.email }}</p>
+
+          <nav>
+            <div class="header2">
+              <div class="menu-item">
+                <i class="fa-regular fa-circle-question"></i>
+                <span><a href="{% url 'logout' %}">Logout</a></span>
+              </div>
+              <div class="menu-item">
+                <i class="fa-solid fa-globe"></i>
+                <span>Global</span>
+              </div>
+              <div class="menu-item">
+                <i class="fa-regular fa-circle-user"></i>
+                <span><a href="{% url 'loginform' %}">Login/Register</a></span>
+              </div>
+            </div>
+            <ul>
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="#card-area">Cool Destinations</a></li>
+              <li><a href="{% url 'schedular' %}">Book Trip</a></li>
+              <li><a href="{% url 'schedule' %}">Train Status</a></li>
+              <li><a href="{% url 'mybookings' %}">My Trips</a></li>
+              <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-bar-container">
+      <div class="search-bar">
+        <form action="{% url 'searchbooking'%}" method="POST">
+          {%csrf_token%}
+          <input
+            type="text"
+            id="departure_station"
+            name="departure_station"
+            placeholder="From"
+          />
+          <input
+            type="text"
+            id="arrival_station"
+            name="arrival_station"
+            placeholder="To"
+          />
+          <input type="date" name="departure_time" />
+          <div class="passenger-select">
+            <select id="adult-count-dropdown">
+              <option value="1">1 adult</option>
+              <option value="2">2 adults</option>
+              <option value="3">3 adults</option>
+              <option value="4">4 adults</option>
+              <option value="5">5 adults</option>
+            </select>
+          </div>
+          <div class="passenger-select2">
+            <select id="kid-count-dropdown">
+              <option value="1">1 kid</option>
+              <option value="2">2 kids</option>
+              <option value="3">3 kids</option>
+              <option value="4">4 kids</option>
+              <option value="5">5 kids</option>
+            </select>
+          </div>
+          <button type="submit" onclick="searchTrains()">Search</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="slideshow-container">
+      <div class="slide">
+        <h3>Holiday Offer!</h3>
+        <p>Enjoy 10% off on your next booking to Suswa.</p>
+      </div>
+      <div class="slide">
+        <h3>Weekend Getaway to Coast</h3>
+        <p>Book now and save on weekend trips to Mombasa.</p>
+      </div>
+      <div class="slide">
+        <h3>Discounted Fares? We got you</h3>
+        <p>Get 5% off on tickets to Voi.</p>
+      </div>
+    </div>
+
+    <!-- Full-width Banner -->
+    <div class="banner">
+      <div class="banner-content">
+        <h2>Nairobi to Mombasa 1500ksh</h2>
+        <p>
+          Travel from the Capital to the sandy beaches in just 2 hours and 17
+          minutes.
+        </p>
+        <button onclick="bookNow()">Book Now</button>
+      </div>
+    </div>
+
+    <div id="about">
+      <div class="container">
+        <div class="rows">
+          <div class="about-col-1">
+            <img src="{% static 'images/IMG_5750.JPG' %}" />
+          </div>
+          <div class="about-col-2">
+            <h1 class="sub-title">About Us</h1>
+            <p>
+              <br />Planning your next adventure? Whether it's a quick trip or a
+              grand getaway, we’ve got you covered with a wide range of exciting
+              destinations. With SGRAILWAYS, traveling has never been more
+              convenient. We offer unbeatable prices and seamless booking
+              options, so wherever your journey takes you, we’ll make sure you
+              get there comfortably and affordably.<br /><br />
+
+              Booking a train has never been this easy! From bustling cities to
+              serene countryside escapes, explore the world of travel right at
+              your fingertips. Our platform ensures a smooth and hassle-free
+              experience, allowing you to book your tickets from a variety of
+              travel options, all tailored to meet your preferences.<br /><br />
+
+              Worried about payments? No problem! We understand the importance
+              of convenience, which is why we’ve made our payment options as
+              flexible as possible. Whether you’re paying with cash, card, or
+              MPESA, you’re in safe hands. Plus, we’ve recently introduced
+              PayPal support, enabling you to make payments seamlessly, even
+              from international accounts. Your journey is just a click away!<br /><br />
+
+              But that’s not all – we’re constantly improving to bring you the
+              best. One of our most exciting new features is the ability to
+              choose a specific seat that matches your preference. Gone are the
+              days of wondering where you’ll be seated! Now, you can select your
+              preferred seat with ease, ensuring your comfort and satisfaction
+              during the journey.<br /><br />
+
+              All this can be done from the comfort of your own home. No queues,
+              no stress – just pure convenience. With SGRAILWAYS, your travel
+              dreams become reality, and we’re here to make every journey
+              memorable.<br /><br />
+
+              So why wait? Start exploring our destinations today, book your
+              train, and embark on an unforgettable adventure. With SGRAILWAYS,
+              your next journey is not just a trip; it’s an experience you’ll
+              cherish forever!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--TRIP CARDS-->
+    <div id="card-area">
+      <div class="wrapper">
+        <div class="box-area">
+          <div class="box">
+            <img src="{% static 'images/IMG_2017.JPG' %}" />
+            <div class="overlay">
+              <h3>Diani</h3>
+              <p>
+                Diani Beach, with its powdery white sands and turquoise waters,
+                is a haven for relaxation and luxury. Located on the Kenyan
+                coast, this destination offers a blend of tropical tranquility
+                and thrilling water sports. Whether it’s snorkeling, kite
+                surfing, or simply basking under the sun, Diani promises an
+                unforgettable coastal experience.
+              </p>
+              <a href="#">Book Now</a>
+            </div>
+          </div>
+          <div class="box">
+            <img src="{% static 'images/IMG_2842.JPG' %}" />
+            <div class="overlay">
+              <h3>Voi</h3>
+              <p>
+                Nestled between Tsavo East and Tsavo West National Parks, Voi is
+                a gateway to Kenya’s iconic wildlife. This charming town offers
+                breathtaking safari experiences, where you can witness the Big
+                Five in their natural habitat. Perfect for nature lovers and
+                adventure seekers, Voi also provides serene landscapes and
+                cultural interactions that make it a must-visit destination.
+              </p>
+              <a href="#">Book Now</a>
+            </div>
+          </div>
+          <div class="box">
+            <img src="{% static 'images/IMG_3176.JPG' %}" />
+            <div class="overlay">
+              <h3>Suswa</h3>
+              <p>
+                Suswa is a hidden gem surrounded by the scenic beauty of the
+                Great Rift Valley. Known for its majestic Mount Suswa and
+                fascinating cave systems, it’s a paradise for hikers and
+                spelunking enthusiasts. The area also boasts captivating views
+                and rich Maasai cultural heritage, making it a unique and
+                enriching stop on your travel itinerary.
+              </p>
+              <a href="#">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="column">
+        <div class="col">
+          <p>
+            Looking to travel comfortably, affordably, and conveniently? This
+            Train Booking System offers seamless booking experiences for all
+            your travel needs. Explore exciting destinations, check train
+            statuses, and book your journey with just a few clicks. Travel
+            smarter, not harder!
+          </p>
+        </div>
+        <div class="col">
+          <h3>
+            Office
+            <div class="underline"><span></span></div>
+          </h3>
+          <p>Avenue Road</p>
+          <p>Diamond Plaza, Parklands</p>
+          <p>Nairobi, PIN 560066, Kenya</p>
+          <p class="email-id">drickykanyiri@gmail.com</p>
+          <h4>+254 712345678</h4>
+        </div>
+        <div class="col">
+          <h3>
+            Links
+            <div class="underline"><span></span></div>
+          </h3>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Cool Destinations</a></li>
+            <li><a href="">Train status</a></li>
+            <li><a href="">My Trip</a></li>
+            <li><a href="">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>
+            Newsletter
+            <div class="underline"><span></span></div>
+          </h3>
+          <form>
+            <i class="fa-regular fa-envelope"></i>
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+          <div class="social-icons">
+            <a
+              href="https://www.instagram.com/vw_derrick"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="https://twitter.com/" target="_blank" aria-label="Twitter"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a
+              href="https://www.whatsapp.com/0746079983"
+              target="_blank"
+              aria-label="WhatsApp"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">
+        Derrick's Train Booking System © 2024 - All Rights Reserved
+      </p>
+    </footer>
+
+    <script src="{% static '/js/YOLO.js' %}"></script>
+  </body>
+</html>

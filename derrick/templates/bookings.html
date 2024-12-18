@@ -1,0 +1,39 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookings</title>
+    <link rel="stylesheet" href="{% static '/css/bookings.css'%}" />
+  </head>
+  <body>
+    <div>
+      <table>
+        <tr>
+          <th>User</th>
+          <th>Schedule</th>
+          <th>Number of Seats</th>
+          <th>Total Price</th>
+          <th>Booking Date</th>
+          <th>Actions</th>
+        </tr>
+
+        {% for x in bookings %}
+        <tr>
+          <td>{{ x.email }}</td>
+          <td>{{ x.schedule }}</td>
+          <td>{{ x.number_of_seats }}</td>
+          <td>{{ x.total_price }}</td>
+          <td>{{ x.booking_date }}</td>
+          <td>
+            <a href=""><button style="background-color: green">Pay</button></a>
+            <a href="{% url 'editbooking' x.id %}"><button>EDIT</button></a>
+            <a href="{% url 'deletebooking' x.id %}"><button>DELETE</button></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

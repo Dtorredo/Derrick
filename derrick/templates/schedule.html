@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Schedules</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Train</th>
+        <th>Departure Station</th>
+        <th>Arrival Station</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Price per Seat</th>
+        <th>Action</th>
+    </tr>
+
+   {% for x in schedule %}
+    <tr>
+        <td>{{ x.train }}</td>
+        <td>{{ x.departure_station }}</td>
+        <td>{{ x.arrival_station }}</td>
+        <td>{{ x.departure_time }}</td>
+        <td>{{ x.arrival_time }}</td>
+        <td>{{ x.price_per_seat }}</td>
+    <td><a href="{% url 'check_seats' x.id%}">Book Seat</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+</body>
+</html>

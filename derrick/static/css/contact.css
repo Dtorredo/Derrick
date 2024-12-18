@@ -1,0 +1,98 @@
+body {
+  background-color: white;
+  background-image: url(../images/blueish.jpg);
+}
+
+#title-Tag-Line {
+  font-size: 20px;
+}
+
+.form {
+  background: #fff;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+  border-radius: 5px;
+  max-width: 480px;
+  margin: 50px auto;
+  padding: 10px 5px;
+  position: relative;
+  border-top: 5px solid #4f75ff;
+}
+
+::-webkit-input-placeholder {
+  font-size: 1.3em;
+}
+
+.title {
+  display: block;
+  font-family: sans-serif;
+  margin: 10px auto 5px;
+  width: 300px;
+}
+
+.termsConditions {
+  margin: 0 auto 5px 80px;
+}
+
+.pageTitle {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.secondaryTitle {
+  color: grey;
+}
+
+.name,
+.email,
+.message {
+  background-color: #ebebeb;
+  color: black;
+  padding: 10px;
+  transition: all 0.5s ease;
+}
+
+.name:hover,
+.email:hover,
+.message:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-bottom: 5px solid #4f75ff;
+}
+
+.message {
+  overflow: hidden;
+  height: 10rem;
+}
+
+.formEntry {
+  display: block;
+  margin: 30px auto;
+  min-width: 300px;
+  padding: 10px;
+  border-radius: 2px;
+  border: none;
+  transition: all 0.5s ease;
+}
+
+.submit {
+  width: 200px;
+  color: white;
+  background-color: #4f75ff;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.submit:hover {
+  box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+  transform: translateY(-3px);
+  width: 300px;
+  border-top: 5px solid #4f75ff;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0, 4px);
+  }
+  50% {
+    transform: translate(0, 8px);
+  }
+}

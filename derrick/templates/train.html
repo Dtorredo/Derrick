@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Timetable</title>
+    <link rel="stylesheet" href="{% static 'css/train.css' %}">
+</head>
+<body>
+    <div class="timetable">
+        <h1 id="current-time"></h1>
+
+       
+        <div class="train-row">
+            <div class="details">
+                <p>Nairobi → Mombasa</p>
+            </div>
+            <div class="time-block">
+                <span class="time">06:01</span>
+                <div class="arrow"></div>
+                <span class="arrival">09:29</span>
+            </div>
+            <p class="status departed">Departed</p>
+        </div>
+
+        <div class="train-row">
+            <div class="details">
+                <p>Nairobi → Suswa</p>
+            </div>
+            <div class="time-block">
+                <span class="time">07:01</span>
+                <div class="arrow"></div>
+                <span class="arrival">10:24</span>
+            </div>
+            <p class="status departed">Departed</p>
+        </div>
+
+        <div class="train-row">
+            <div class="details">
+                <p>Mombasa → Voi</p>
+            </div>
+            <div class="time-block">
+                <span class="time">08:01</span>
+                <div class="arrow"></div>
+                <span class="arrival">11:24</span>
+            </div>
+            <p class="status on-time">On time</p>
+        </div>
+
+        <div class="train-row">
+            <div class="details">
+                <p>Mombasa → Nairobi</p>
+            </div>
+            <div class="time-block">
+                <span class="time">09:31</span>
+                <div class="arrow"></div>
+                <span class="arrival">13:00</span>
+            </div>
+            <p class="status on-time">On time</p>
+        </div>
+
+        <div class="train-row">
+            <div class="details">
+                <p>Suswa → Nairobi</p>
+            </div>
+            <div class="time-block">
+                <span class="time">11:31</span>
+                <div class="arrow"></div>
+                <span class="arrival">14:48</span>
+            </div>
+            <p class="status cancelled">Train cancelled</p>
+        </div>
+    </div>
+    <script src="{% static 'js/train.js' %}"></script>
+</body>
+</html>
