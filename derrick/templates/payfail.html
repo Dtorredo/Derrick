@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Successful Payment</title>
+    <link rel="stylesheet" href="{% static '/css/paysuccess.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+
+    <hr>
+
+
+  <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="message-box _success _failed">
+                     <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    <h2> Your payment failed </h2>
+             <p>  Ensure The Phone Number is Correct and is Safaricom Registered </p>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

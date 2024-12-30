@@ -1,0 +1,93 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-end; 
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#train {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.left-group, .right-group {
+    display: flex;
+}
+
+.left-group {
+    margin-right: 20px; 
+}
+
+.seat {
+    width: 40px; 
+    height: 40px; 
+    margin: 0 3px; 
+    display: inline-block;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.seat.left {
+    background-color: #87CEEB; 
+}
+
+
+.seat.right {
+    background-color: #87CEEB;
+}
+
+.seat.selected {
+    background-color: #ffff00; 
+    border: 1px solid #333;
+}
+
+
+.seat.reserved {
+    background-color: #B0B0B0; 
+    cursor: not-allowed;
+}
+
+#booking-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#booking-info h2 {
+    font-size: 20px;
+}
+
+#selected-seat {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#reserve-seat {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#reserve-seat:hover {
+    background-color: #45A049;
+}

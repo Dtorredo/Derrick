@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Reservation KE</title>
+    <link rel="stylesheet" href="{% static '/css/YOLO.css' %}">
+
+    <script src="https://kit.fontawesome.com/d08ab046b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <!-- SGRAILWAYS header and navbar are in the same container -->
+            <div class="header">
+                <p>Welcome to SGRAILWAYS {{ user.email }}</p>
+
+
+                <nav>
+                    <div class="header2">
+                        <div class="menu-item">
+                            <i class="fa-regular fa-circle-question"></i>
+                          <span><a href="{% url 'logout' %}">Logout</a></span>
+                        </div>
+                        <div class="menu-item">
+                          <i class="fa-solid fa-globe"></i>
+                          <span>Global</span>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-regular fa-circle-user"></i>
+                          <span><a href="{% url 'loginform' %}">Login/Register</a></span>
+                        </div>
+                      </div>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="#card-area">Cool Destinations</a></li>
+                        <li><a href="{% url 'schedular' %}">Book Trip</a></li>
+                        <li><a href="{% url 'schedule' %}">Train Status</a></li>
+                        <li><a href="{% url 'mybookings' %}">My Trips</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                       
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="search-bar-container">
+        <div class="search-bar">
+            <input type="text" placeholder="From">
+            <input type="text" placeholder="To">
+            <input type="date">
+            <div class="passenger-select">
+                <select id="adult-count-dropdown">
+                    <option value="1">1 adult</option>
+                    <option value="2">2 adults</option>
+                    <option value="3">3 adults</option>
+                    <option value="4">4 adults</option>
+                    <option value="5">5 adults</option>
+                </select>
+            </div>
+            <div class="passenger-select2">
+                <select id="kid-count-dropdown">
+                    <option value="1">1 kid</option>
+                    <option value="2">2 kids</option>
+                    <option value="3">3 kids</option>
+                    <option value="4">4 kids</option>
+                    <option value="5">5 kids</option>
+                </select>
+            </div>
+            <a href="Seats.html"><button onclick="searchTrains()">Search</button></a>
+
+        </div>
+    </div>
+
+
+    <div class="slideshow-container">
+        <div class="slide">
+            <h3>Holiday Offer!</h3>
+            <p>Enjoy 10% off on your next booking to Suswa.</p>
+        </div>
+        <div class="slide">
+            <h3>Weekend Getaway to Coast</h3>
+            <p>Book now and save on weekend trips to Mombasa.</p>
+        </div>
+        <div class="slide">
+            <h3>Discounted Fares? We got you</h3>
+            <p>Get 5% off on tickets to Voi.</p>
+        </div>
+    </div>
+
+    <!-- Full-width Banner -->
+    <div class="banner">
+        <div class="banner-content">
+            <h2>Nairobi to Mombasa 1500ksh</h2>
+            <p>Travel from the Capital to the sandy beaches in just 2 hours and 17 minutes.</p>
+            <a href="{% url 'schedular' %}"><button onclick="bookNow()">Book Now</button></a>
+        </div>
+    </div>
+
+    <div id="about">
+        <div class="container">
+            <div class="rows">
+                <div class="about-col-1">
+                    <img src="{% static 'images/IMG_5750.JPG' %}" >
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Us </h1>
+                    <p><br>Going somewhere? We have a boatload of cool destinations with our very refined prices,<br> and wherever you wanna go to, we'll take you there. Join us by booking a train to a <br>variety of our travel options! <br><br> Paying with cash, card or MPESA ? All your needs are suited with the use of the <br>SGRAILWAYS website, no hustle <br><br> New features include the ability to use Paypal to pay, not just local Mpesa. <br>The best part is that you can now choose a specific seat to your liking! <br> You do not need to find out the seat allocated to you in the train. <br><br> Now all from the comfort of your house. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--TRIP CARDS-->
+<div id="card-area">
+    <div class="wrapper">
+        <div class="box-area">
+            <div class="box">
+                <img src="{% static 'images/IMG_2017.JPG' %}">
+                <div class="overlay">
+                    <h3>Diani</h3>
+                    <p>Diani Beach, with its powdery white sands and turquoise waters, is a haven for relaxation and luxury. Located on the Kenyan coast, this destination offers a blend of tropical tranquility and thrilling water sports. Whether it’s snorkeling, kite surfing, or simply basking under the sun, Diani promises an unforgettable coastal experience.</p>
+                    <a href="#">Book Now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/IMG_2017.JPG' %}">
+                <div class="overlay">
+                    <h3>Voi </h3>
+                    <p>Nestled between Tsavo East and Tsavo West National Parks, Voi is a gateway to Kenya’s iconic wildlife. This charming town offers breathtaking safari experiences, where you can witness the Big Five in their natural habitat. Perfect for nature lovers and adventure seekers, Voi also provides serene landscapes and cultural interactions that make it a must-visit destination.</p>
+                    <a href="#">Book Now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/IMG_2017.JPG' %}">
+                <div class="overlay">
+                    <h3>Suswa</h3>
+                    <p>Suswa is a hidden gem surrounded by the scenic beauty of the Great Rift Valley. Known for its majestic Mount Suswa and fascinating cave systems, it’s a paradise for hikers and spelunking enthusiasts. The area also boasts captivating views and rich Maasai cultural heritage, making it a unique and enriching stop on your travel itinerary.</p>
+                    <a href="#">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--Contact Form, upgrade to your will motherrchord🖕 -->
+
+
+    <!--End of contact form-->
+
+
+<footer>
+    <div class="column">
+        <div class="col">
+            <p>Train Booking System</p>
+
+        </div>
+        <div class="col">
+            <h3>Nairobi <div class="underline"><span></span></div></h3>
+            <p>Kenya</p>
+            <p>Off Airport Road</p>
+            <p></p>
+            <p class="email-id">drickykanyiri@gmail.com</p>
+            <h4>+254 712345678</h4>
+        </div>
+        <div class="col">
+            <h3>Links <div class="underline"><span></span></div></h3>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Cool Destinations</a></li>
+                <li><a href="">Train status</a></li>
+                <li><a href="">My Trip</a></li>
+                <li><a href="">Contact us</a></li>
+
+            </ul>
+        </div>
+        <div class="col">
+            <h3>Newsletter <div class="underline"><span></span></div></h3>
+            <form>
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+            <div class="social-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-x-twitter"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+                <i class="fa-brands fa-facebook"></i>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p class="copyright">Derrick's Train Booking System © 2024 - All Rights Reserved</p>
+</footer>
+
+
+    <script src="{% static '/js/YOLO.js' %}"></script>
+</body>
+</html>

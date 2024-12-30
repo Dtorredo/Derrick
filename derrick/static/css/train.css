@@ -1,0 +1,104 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #AEE4FF, #BBD0FF);
+}
+
+/* Timetable Container */
+.timetable {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Timetable Header Clock */
+#current-time {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #555; /* Grey text */
+    font-weight: bold;
+}
+/* Individual Train Rows */
+.train-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #e6f7ff; /* Light blue background */
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Details (Location Text) */
+.details {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Time Block */
+.time-block {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 10px 0;
+}
+
+.time {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    flex: 0 0 15%;
+    text-align: left;
+}
+
+.arrow {
+    flex: 1;
+    height: 2px;
+    background: #333;
+    margin: 0 10px;
+    position: relative;
+}
+
+.arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+}
+
+.arrival {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    flex: 0 0 15%;
+    text-align: right;
+}
+
+/* Train Status */
+.status {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.status.departed {
+    color: #f39c12; /* Orange for departed */
+}
+
+.status.on-time {
+    color: #27ae60; /* Green for on-time */
+}
+
+.status.cancelled {
+    color: #e74c3c; /* Red for cancelled */
+}

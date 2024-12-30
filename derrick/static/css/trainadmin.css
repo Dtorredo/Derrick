@@ -1,0 +1,88 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #2c3e50;
+    margin: 20px 0;
+}
+
+/* Container Styles */
+div {
+    margin: 20px auto;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #2c3e50;
+    color: #fff;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #eaeaea;
+}
+
+/* Add some spacing for table cells */
+th, td {
+    padding: 10px 15px;
+}
+
+/* Responsive Design for Tables */
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    table th,
+    table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Highlight first row for better readability */
+table tr:first-child {
+    font-size: 16px;
+    background-color: #34495e;
+    color: #fff;
+}
+
+/* Add alternating background for better readability */
+
+/* Footer style */
+footer {
+    text-align: center;
+    padding: 15px;
+}

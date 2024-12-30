@@ -1,0 +1,46 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="{% static '/css/mybookings.css' %}">
+</head>
+<body>
+
+<div>
+<table>
+    <tr>
+        <th>User</th>
+        <th>Schedule</th>
+        <th>Number of Seats</th>
+        <th>Total Price</th>
+        <th>Booking Date</th>
+        <th>Booking Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for x in bookings %}
+    <tr>
+        <td>{{ x.email }}</td>
+        <td>{{ x.schedule }}</td>
+        <td>{{ x.number_of_seats }}</td>
+        <td>{{ x.total_price }}</td>
+        <td>{{ x.booking_date }}</td>
+        <td>{{ x.status }}</td>
+        <td>
+            <a href="{% url 'pay' x.id %}"><button style="background-color: green">PAY</button></a>
+            <a href="{% url 'editbooking' x.id %}"><button style="background-color: blue">EDIT</button></a>
+            <a href="{% url 'deletebooking' x.id %}"><button>DELETE</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
+</body>
+</html>

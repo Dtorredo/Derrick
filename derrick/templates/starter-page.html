@@ -1,0 +1,59 @@
+
+<!-- Pussio Do not touch this page, it's just a template for easier rendering -->
+<!-- Remember to remove this rogue comments-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Reservation KE</title>
+    <link rel="stylesheet" href="{% static '/css/YOLO.css' %}">
+
+
+    <script src="https://kit.fontawesome.com/d08ab046b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <!-- SGRAILWAYS header and navbar are in the same container -->
+            <div class="header">
+                <h1>Welcome to SGRAILWAYS {{ user.email }}</h1>
+
+                <nav>
+                    <div class="header2">
+                        <div class="menu-item">
+                            <i class="fa-regular fa-circle-question"></i>
+                          <span>Help</span>
+                        </div>
+                        <div class="menu-item">
+                          <i class="fa-solid fa-globe"></i>
+                          <span>Global</span>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-regular fa-circle-user"></i>
+                          <span><a href="{% url 'loginform' %}">Login/Register</a></span>
+                        </div>
+                      </div>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="#card-area">Cool Destinations</a></li>
+                        <li><a href="{% url 'schedule' %}">Train Status</a></li>
+                        <li><a href="#">My Trips</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+{% block body %}
+
+
+{% endblock %}
+
+
+
+    <script src="{% static '/js/YOLO.js' %}"></script>
+</body>
+</html>
